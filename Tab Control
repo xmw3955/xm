@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="js/jquery-3.1.1.js"></script>
+    <style>
+        div,ul,li{
+            margin:0;
+            padding:0;
+        }
+        #select{
+            width:400px;
+            height:30px;
+            margin:50px;
+        }
+        .tap-item {
+            position: relative;
+            list-style: none;
+            float:left;
+            width:100px;
+            height:30px;
+            line-height: 30px;
+            text-align: center;
+            background-color: #eee;
+            margin-right:10px;
+            border:1px solid #888;
+            border-bottom-width: 0;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            cursor:pointer;
+        }
+        .active{
+           bottom:-1px;
+            background-color: #fff;
+        }
+        #content{
+            width: 400px;
+            height: 300px;
+            border: solid 1px black;
+        }
+   #content p{
+       display:none;
+   }
+        .clearfix:after {
+            content:'';
+            display: block;
+            clear:both;
+        }
+    </style>
+</head>
+<body>
+<div id="select">
+    <ul class="clearfix">
+        <li class="tap-item active">选项一</li>
+        <li class="tap-item">选项二</li>
+        <li class="tap-item">选项三</li>
+    </ul><div id="content">
+    <p style="display: block">1111</p>
+
+    <p>222</p>
+
+    <p>333</p>
+</div>
+</div>
+<script>
+    $('.tap-item').on('click',function(){
+        $(this).addClass("active").siblings().removeClass("active");
+  var index=$(this).index();
+        $('p:eq(index)').show().siblings().hide();
+    })
+
+</script>
+</body>
+</html>
